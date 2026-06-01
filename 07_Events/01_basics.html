@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>one1</li>
+        <li>one2</li>
+        <li>one3</li>
+        <li>one4</li>
+        <li>one5</li>
+        <li>one6</li>
+    </ul>
+    
+</body>
+<script>
+    
+
+    let ul = document.querySelector('ul')
+    ul.addEventListener('click',function(e){
+        console.log(e)
+        console.log(e.target)
+        let removeIt = e.target
+        removeIt.remove()
+
+    },false)
+</script>
+</html>

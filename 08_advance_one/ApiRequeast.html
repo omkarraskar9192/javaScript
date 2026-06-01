@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <h1>Hi! I AM KING</h1> -->
+    <table border="1">
+  <tr>
+    <th>Name</th>
+    <th>Image</th>
+  </tr>
+  <tr >
+    <td id = "Name">Product A</td>
+    <td>
+      <!-- Image tag inside the table cell -->
+      <img id = "image" src="image_url.jpg" alt="Description of image" width="100">
+    </td>
+  </tr>
+</table>
+
+</body>
+<script>
+    const requeatUrl = 'https://api.github.com/users/hiteshchoudhary'
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET',requeatUrl)
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState);
+        if(xhr.readyState == 4){
+            const data = JSON.parse(this.responseText)
+            // console.log(this.responseText)
+            console.log(data);
+            console.log(data.location);
+            const name = document.getElementById('Name')
+            name.innerText = data.name
+            const image = document.getElementById('image')
+            image.src = data.avatar_url
+
+            
+            
+        }
+        
+    }
+    xhr.send()
+</script>
+</html>
