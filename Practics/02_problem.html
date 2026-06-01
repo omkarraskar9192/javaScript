@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1 id ='count'>0</h1>
+    <button id="increment">increment</button>
+    <button id="decrement">decrement</button>   
+    <button id="reset">reset</button>   
+
+</body>
+<script>
+    const count = document.getElementById('count')
+    const increment = document.getElementById('increment')
+    const decrement = document.getElementById('decrement')
+    const reset = document.getElementById('reset')
+    console.log(count);
+    
+    let counts = 0
+    function update(counts){
+        changeColor(counts)
+        count.innerText = counts
+
+    }
+    function changeColor(count){
+    if (count > 0) {
+        count.style.color = "green";
+    }else if(count < 0){
+        count.style.color = "red";
+    }else{
+        count.style.color = "black";
+    }
+    }
+    increment.addEventListener('click',function(){
+        console.log(counts)
+        if(counts < 10){
+            counts++
+        }
+        update(counts)
+    })
+    decrement.addEventListener('click',()=>{
+        console.log(counts)
+        if(counts > -10){
+        counts--
+        }
+        
+        update(counts)
+    })
+    reset.addEventListener('click',()=>{
+        console.log(counts)
+        counts = 0
+        update(counts)
+    })
+    
+</script>
+</html>
